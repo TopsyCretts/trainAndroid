@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -77,8 +78,12 @@ public class MainActivity extends AppCompatActivity {
             builder.setTitle(title);
             builder.setMessage(message);
             builder.setPositiveButton(positive, (dialog, which) -> Toast.makeText(MainActivity.this,posCon,Toast.LENGTH_LONG).show());
-            builder.setNegativeButton(negative, (dialog, which) -> Toast.makeText(MainActivity.this,negCon,Toast.LENGTH_LONG).show());
-            AlertDialog dialog = builder.create();
+            builder.setNegativeButton(negative, (dialog, which) -> {
+                Toast.makeText(MainActivity.this, negCon,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, sad_cat_activity.class);
+                startActivity(intent);
+            });
+                    AlertDialog dialog = builder.create();
             dialog.show();
     }
 

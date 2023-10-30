@@ -8,5 +8,7 @@
     <string name="number1">Введите число 1</string>
     <string name="number2">Введите число 2</string>
     <string name="button_like">Ну какая кростка то а...</string>
+    <string name="sad_news_text">Как так можно вообще поступать...</string>
+    <string name="sad_act_back_button">Вернуться и исправиться</string>
 
 </resources>
