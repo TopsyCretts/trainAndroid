@@ -1,12 +1,23 @@
 <resources>
     <string name="app_name">trainAndroid</string>
+
     <string name="show_button">Показать кису</string>
     <string name="button_like">Ну какая кростка то а...</string>
     <string name="sad_news_text">Как так можно вообще поступать...</string>
     <string name="sad_act_back_button">Вернуться и исправиться</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="start_murr">Погладить кошечку</string>
     <string name="loop_murr">Гладить милашку</string>
+
+    <string name="back_btn">Вернуться</string>
+    <string name="delete_btn">Удалить</string>
+    <string name="add_btn">Добавить</string>
+    <string name="show_cats">Контакты</string>
+
+    <string name="enter_name">Введите имя</string>
+    <string name="add_to_catList">Добавить в список</string>
 
 </resources>

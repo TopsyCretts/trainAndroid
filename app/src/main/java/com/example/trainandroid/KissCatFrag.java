@@ -1,6 +1,5 @@
 package com.example.trainandroid;
 
-import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -13,7 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import pl.droidsonroids.gif.GifDrawable;
+import pl.droidsonroids.gif.GifImageView;
+
 public class KissCatFrag extends Fragment {
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,6 +33,10 @@ public class KissCatFrag extends Fragment {
         loop = view.findViewById(R.id.lopp_murr);
         MediaPlayer mrrrSound = MediaPlayer.create(getContext(),R.raw.mrrr);
         MediaPlayer murSound = MediaPlayer.create(getContext(), R.raw.urr);
+        GifImageView gif = view.findViewById(R.id.murr_cat);
+        GifDrawable drawable = (GifDrawable) gif.getDrawable();
+        drawable.pause();
+
         start.setOnClickListener(new View.OnClickListener() {
             boolean isPlaying = false;
             @Override
@@ -42,11 +49,10 @@ public class KissCatFrag extends Fragment {
                 } else {
                     murSound.setVolume(1f,1f);
                     murSound.setLooping(false);
-                    mrrrSound.seekTo(0);
+                    mrrrSound.seekTo(1);
                     murSound.start();
                     isPlaying = true;
                 }
-
             }
         });
         loop.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +63,7 @@ public class KissCatFrag extends Fragment {
                     mrrrSound.pause();
                     loop.setText("Гладить милашку");
                     isPlaying = false;
+                    drawable.pause();
                 } else {
                     mrrrSound.setVolume(1f,1f);
                     mrrrSound.setLooping(true);
@@ -64,6 +71,7 @@ public class KissCatFrag extends Fragment {
                     mrrrSound.start();
                     loop.setText("Перестать гладить");
                     isPlaying=true;
+                    drawable.start();
                 }
 
             }

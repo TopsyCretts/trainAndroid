@@ -2,14 +2,12 @@ package com.example.trainandroid;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -19,19 +17,26 @@ public class MainActivity extends AppCompatActivity {
     private Button showButton;
     private ImageView image;
     private Button like_button;
-    private FrameLayout frameLayout;
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Window window = getWindow();
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         showButton = findViewById(R.id.show);
+        Button contactsButton = findViewById(R.id.contacts);
         image = findViewById(R.id.tanya);
         like_button = findViewById(R.id.like_button);
-        frameLayout = findViewById(R.id.frameLayout);
+        FrameLayout frameLayout = findViewById(R.id.frameLayout);
+
+        contactsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CatsAct.class);
+            startActivity(intent);
+        });
 
         showButton.setOnClickListener(new View.OnClickListener() {
             boolean showMode = false;
@@ -50,22 +55,21 @@ public class MainActivity extends AppCompatActivity {
                         }
         }
     });
-        like_button.setOnClickListener(v -> showInfo("А что ты выберешь, а?","Погладишь киску?))", "Канешна",
-                "Ты хороший кожаный", "Нихотю чёта", "Ну и нинада..." ));
+        like_button.setOnClickListener(v -> showInfo(
+        ));
         KissCatFrag kissCatFrag = new KissCatFrag();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(frameLayout.getId(), kissCatFrag);
         fragmentTransaction.commit();
 
     }
-    private void showInfo(String title,String message, String positive, String posCon,
-                          String negative,String negCon){
+    private void showInfo(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(title);
-            builder.setMessage(message);
-            builder.setPositiveButton(positive, (dialog, which) -> Toast.makeText(MainActivity.this,posCon,Toast.LENGTH_LONG).show());
-            builder.setNegativeButton(negative, (dialog, which) -> {
-                Toast.makeText(MainActivity.this, negCon,Toast.LENGTH_SHORT).show();
+            builder.setTitle("А что ты выберешь, а?");
+            builder.setMessage("Погладишь киску?))");
+            builder.setPositiveButton("Канешна", (dialog, which) -> Toast.makeText(MainActivity.this, "Ты хороший кожаный",Toast.LENGTH_LONG).show());
+            builder.setNegativeButton("Нихотю чёта", (dialog, which) -> {
+                Toast.makeText(MainActivity.this, "Ну и нинада...",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, SadCatAct.class);
                 startActivity(intent);
             });
