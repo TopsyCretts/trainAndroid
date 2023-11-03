@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cat" />
+        app:srcCompat="@drawable/sad_cat" />
 
     <Button
         android:id="@+id/back_to_main_btn"
