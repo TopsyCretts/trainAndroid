@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">trainAndroid</string>
 
-    <string name="show_button">Показать кису</string>
-    <string name="button_like">Ну какая кростка то а...</string>
-    <string name="sad_news_text">Как так можно вообще поступать...</string>
+    <string name="show_button">Показать котёнка</string>
+    <string name="button_like">Ну какой же милый</string>
+    <string name="sad_news_text">Эх ты...</string>
     <string name="sad_act_back_button">Вернуться и исправиться</string>
 
     <!-- TODO: Remove or change this placeholder text -->
