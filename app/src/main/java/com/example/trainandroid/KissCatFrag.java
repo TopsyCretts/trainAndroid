@@ -1,5 +1,6 @@
 package com.example.trainandroid;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -28,9 +29,10 @@ public class KissCatFrag extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button start, loop;
+        Button start, loop, exp;
         start = view.findViewById(R.id.start_mrr);
         loop = view.findViewById(R.id.lopp_murr);
+        exp = view.findViewById(R.id.exp_button);
         MediaPlayer mrrrSound = MediaPlayer.create(getContext(),R.raw.mrrr);
         MediaPlayer murSound = MediaPlayer.create(getContext(), R.raw.urr);
         GifImageView gif = view.findViewById(R.id.murr_cat);
@@ -76,6 +78,7 @@ public class KissCatFrag extends Fragment {
 
             }
         });
+        exp.setOnClickListener(v -> startActivity(new Intent(getContext(), Experimental.class)));
 
     }
 }
