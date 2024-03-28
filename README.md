@@ -1,3 +1,3 @@
-# Kotlin Train
+# Android Train
 
-Repo for my trainings during learning Kotlin
+Repo for my trainings during learning Android SDK
